@@ -1,22 +1,14 @@
 import './App.css'
-import api from './api/axiosConfig'
+import movieService from './services/movies'
 import { useEffect, useState } from 'react'
 
 const App = () => {
   const [movies, setMovies] = useState()
 
-  const getMovies = async () => {
-    try {
-      const response = await api.get('/api/movies')
-      console.log(response.data)
-      setMovies(response.data)
-    } catch(error) {
-      console.log(error)
-    }
-  }
-
   useEffect(() => {
-    getMovies()
+    (async () => {
+      setMovies(await movieService.getAll())
+    })()
   }, [])
 
   return (
