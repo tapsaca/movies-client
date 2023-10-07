@@ -1,6 +1,9 @@
 import './App.css'
+import Home from './components/home/Home'
+import Layout from './components/Layout'
 import movieService from './services/movies'
 import { useEffect, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
 const App = () => {
   const [movies, setMovies] = useState()
@@ -12,7 +15,13 @@ const App = () => {
   }, [])
 
   return (
-    <div></div>
+    <div>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route path='/' element={<Home />} />
+        </Route>
+      </Routes>
+    </div>
   )
 }
 
