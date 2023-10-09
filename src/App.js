@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 const App = () => {
-  const [movies, setMovies] = useState()
+  const [movies, setMovies] = useState([])
 
   useEffect(() => {
     (async () => {
@@ -18,7 +18,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home movies={movies} />} />
         </Route>
       </Routes>
     </div>
