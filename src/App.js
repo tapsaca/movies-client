@@ -1,4 +1,5 @@
 import './App.css'
+import Header from './components/header/Header'
 import Home from './components/home/Home'
 import Layout from './components/Layout'
 import movieService from './services/movies'
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route path='/' element={<Home movies={movies} />} />
